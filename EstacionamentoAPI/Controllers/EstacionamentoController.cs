@@ -78,6 +78,15 @@ namespace EstacionamentoAPI.Controllers
             var estacionamento = _db.Estacionamentos.Find(id);
             var carro = await _db.Carros.FirstOrDefaultAsync(x => x.Placa == placa);
 
+            if(estacionamento == null)
+            {
+                return NotFound("O estacionamento não foi encontrado.");
+            }
+            if(carro == null)
+            {
+                return NotFound("O carro não foi encontrado.");
+            }
+
             estacionamento.Veiculos.Add(carro);
 
 
