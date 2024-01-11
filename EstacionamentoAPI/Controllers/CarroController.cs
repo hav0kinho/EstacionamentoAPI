@@ -52,7 +52,7 @@ namespace EstacionamentoAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCarro(CarroDTO carroDto)
+        public IActionResult CreateCarro([FromBody] CarroDTO carroDto)
         {
             var carro = _mapper.Map<Carro>(carroDto);
 
