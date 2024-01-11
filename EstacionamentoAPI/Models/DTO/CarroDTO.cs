@@ -13,7 +13,7 @@ namespace EstacionamentoAPI.Models.DTO
         public string? Cor { get; set; }
 
         [Required(ErrorMessage = "A Placa do carro deve ser fornecida")]
-        [StringLength(7, ErrorMessage = "A Placa deve ter exatamente 7 caractéres")]
+        [StringLength(7, MinimumLength = 7, ErrorMessage = "A Placa deve ter exatamente 7 caracteres")]
         public string? Placa { get; set; }
     }
 }
