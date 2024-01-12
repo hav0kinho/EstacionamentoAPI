@@ -2,6 +2,7 @@
 using EstacionamentoAPI.Data;
 using EstacionamentoAPI.Models;
 using EstacionamentoAPI.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,7 @@ namespace EstacionamentoAPI.Controllers
 {
     [ApiController]
     [Route("api/estacionamentos")]
+    [Authorize]
     public class EstacionamentoController : ControllerBase
     {
         private readonly AppDbContext _db;
@@ -20,6 +22,8 @@ namespace EstacionamentoAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "user, admin")]
+
         public IActionResult GetEstacionamentos()
         {
             var estacionamentos = _db.Estacionamentos.Include(x => x.Veiculos).ToList();
@@ -28,6 +32,8 @@ namespace EstacionamentoAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "user, admin")]
+
         public IActionResult GetEstacionamento(int id)
         {
             var estacionamento = _db.Estacionamentos.Find(id);
@@ -41,6 +47,8 @@ namespace EstacionamentoAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
+
         public IActionResult CreateEstacionamento([FromBody] EstacionamentoDTO estacionamentoDTO)
         {
             var estacionamento = _mapper.Map<Estacionamento>(estacionamentoDTO);
@@ -57,6 +65,8 @@ namespace EstacionamentoAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "admin")]
+
         public IActionResult DeleteEstacionamento(int id)
         {
             var estacionamento = _db.Estacionamentos.Find(id);
@@ -73,6 +83,8 @@ namespace EstacionamentoAPI.Controllers
         }
 
         [HttpPost("estacionar-carro/{id}/{placa}")]
+        [Authorize(Roles = "user, admin")]
+
         public async Task<IActionResult> AddCarroInEstacionamento(int id, string placa)
         {
             var estacionamento = _db.Estacionamentos.Find(id);
@@ -92,7 +104,29 @@ namespace EstacionamentoAPI.Controllers
 
             await _db.SaveChangesAsync();
 
-            return Ok("Veiculo adicionado");
+            return Ok("Veiculo adicionado.");
+        }
+
+        [HttpPost("retirar-carro/{id}/{placa}")]
+
+        public async Task<IActionResult> RemoveCarroFromEstacionamento(int id, string placa)
+        {
+            var estacionamento = await _db.Estacionamentos.FindAsync(id);
+            var carro = await _db.Carros.FindAsync(id);
+
+            if (estacionamento == null)
+            {
+                return NotFound("O estacionamento não foi encontrado.");
+            }
+            if (carro == null)
+            {
+                return NotFound("O carro não foi encontrado.");
+            }
+
+            estacionamento.Veiculos.Remove(carro);
+            await _db.SaveChangesAsync();
+
+            return Ok("Veiculo retirado.");
         }
     }
 }

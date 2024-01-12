@@ -26,7 +26,20 @@ namespace EstacionamentoAPI.Controllers
         public async Task<IActionResult> Register(UserDTO userDto)
         {
             var usuario = _mapper.Map<User>(userDto);
+
             usuario.Roles = ["user"];
+
+            await _db.Users.AddAsync(usuario);
+            await _db.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPost("registrar/admin")]
+        public async Task<IActionResult> RegisterAdmin(UserDTO userDto)
+        {
+            var usuario = _mapper.Map<User>(userDto);
+            usuario.Roles = ["admin"];
 
             await _db.Users.AddAsync(usuario);
             await _db.SaveChangesAsync();
