@@ -7,6 +7,7 @@ namespace EstacionamentoAPI.Data
     {
         public DbSet<Estacionamento> Estacionamentos { get; set; }
         public DbSet<Carro> Carros { get; set; }
+        public DbSet<User> Users { get; set; }
         public AppDbContext(DbContextOptions options) : base(options) { }
     }
 }

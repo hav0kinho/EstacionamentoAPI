@@ -10,6 +10,7 @@ namespace EstacionamentoAPI
         {
             CreateMap<Estacionamento, EstacionamentoDTO>().ReverseMap();
             CreateMap<Carro, CarroDTO>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }
