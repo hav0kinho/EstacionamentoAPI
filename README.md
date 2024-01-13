@@ -25,14 +25,14 @@ O sistema conta com três controllers para requisições ao servidor, sendo elas
 
 #### Rotas
 
-* **Auth**
+* **Auth**<br/>
 <code>***POST***</code> <code>/api/auth/registrar</code> -> Cria usuários.<br/>
 <code>***POST***</code> <code>/api/auth/registrar/admin</code> -> **Rota para facilitar os testes** - Cria usuários administradores.<br/>
 <code>***POST***</code> <code>/api/auth/login</code> -> Recebe um usuário e devolve um JWT.<br/>
 
 <br>
 
-* **Carros**
+* **Carros**<br/>
 <code>***GET***</code> <code>/api/carros</code> <code>*User | Admin*</code> -> Resgata todos os carros.<br/>
 <code>***GET***</code> <code>/api/carros/{id}</code> <code>*User | Admin*</code> -> Resgata um carro a partir de um ID.<br/>
 <code>***GET***</code> <code>/api/carros/buscar-placa/{placa}</code> <code>*User | Admin*</code> -> Resgata um carro a partir de uma placa.<br/>
@@ -42,7 +42,7 @@ O sistema conta com três controllers para requisições ao servidor, sendo elas
 
 <br>
 
-* **Estacionamentos**
+* **Estacionamentos**<br/>
 <code>***GET***</code> <code>/api/estacionamentos</code> <code>*User | Admin*</code> -> Resgata todos os estacionamentos.<br/>
 <code>***GET***</code> <code>/api/estacionamentos/{id}</code> <code>*User | Admin*</code> -> Resgata um estacionamento a partir de um ID.<br/>
 <code>***POST***</code> <code>/api/estacionamentos</code> <code>*Admin*</code> -> Cadastra um estacionamento.<br/>
