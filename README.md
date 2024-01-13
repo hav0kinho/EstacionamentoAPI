@@ -26,35 +26,35 @@ O sistema conta com três controllers para requisições ao servidor, sendo elas
 #### Rotas
 
 * **Auth**
-<code>***POST***</code> <code>/api/auth/registrar</code> -> Cria usuários.
-<code>***POST***</code> <code>/api/auth/registrar/admin</code> -> **Rota para facilitar os testes** - Cria usuários administradores.
-<code>***POST***</code> <code>/api/auth/login</code> -> Recebe um usuário e devolve um JWT.
+<code>***POST***</code> <code>/api/auth/registrar</code> -> Cria usuários.<br/>
+<code>***POST***</code> <code>/api/auth/registrar/admin</code> -> **Rota para facilitar os testes** - Cria usuários administradores.<br/>
+<code>***POST***</code> <code>/api/auth/login</code> -> Recebe um usuário e devolve um JWT.<br/>
 
 <br>
 
 * **Carros**
-<code>***GET***</code> <code>/api/carros</code> <code>*User | Admin*</code> -> Resgata todos os carros.
-<code>***GET***</code> <code>/api/carros/{id}</code> <code>*User | Admin*</code> -> Resgata um carro a partir de um ID.
-<code>***GET***</code> <code>/api/carros/buscar-placa/{placa}</code> <code>*User | Admin*</code> -> Resgata um carro a partir de uma placa.
-<code>***POST***</code> <code>/api/carros</code> <code>*User | Admin*</code> -> Cadastra um carro.
-<code>***DELETE***</code> <code>/api/carros/{id}</code> <code>*Admin*</code> -> Deleta um carro a partir de um ID
-<code>***DELETE***</code> <code>/api/carros/buscar-placa/{id}</code> <code>*Admin*</code> -> Delete um carro a partir de uma placa.
+<code>***GET***</code> <code>/api/carros</code> <code>*User | Admin*</code> -> Resgata todos os carros.<br/>
+<code>***GET***</code> <code>/api/carros/{id}</code> <code>*User | Admin*</code> -> Resgata um carro a partir de um ID.<br/>
+<code>***GET***</code> <code>/api/carros/buscar-placa/{placa}</code> <code>*User | Admin*</code> -> Resgata um carro a partir de uma placa.<br/>
+<code>***POST***</code> <code>/api/carros</code> <code>*User | Admin*</code> -> Cadastra um carro.<br/>
+<code>***DELETE***</code> <code>/api/carros/{id}</code> <code>*Admin*</code> -> Deleta um carro a partir de um ID<br/>
+<code>***DELETE***</code> <code>/api/carros/buscar-placa/{id}</code> <code>*Admin*</code> -> Delete um carro a partir de uma placa.<br/>
 
 <br>
 
 * **Estacionamentos**
-<code>***GET***</code> <code>/api/estacionamentos</code> <code>*User | Admin*</code> -> Resgata todos os estacionamentos.
-<code>***GET***</code> <code>/api/estacionamentos/{id}</code> <code>*User | Admin*</code> -> Resgata um estacionamento a partir de um ID.
-<code>***POST***</code> <code>/api/estacionamentos</code> <code>*Admin*</code> -> Cadastra um estacionamento.
-<code>***POST***</code> <code>/api/estacionamentos/estacionar-carro/{id}/{placa}</code> <code>*User | Admin*</code> -> Estaciona um carro a partir da placa em um estacionamento com um determinado ID.
-<code>***POST***</code> <code>/api/estacionamentos/retirar-carro/{id}/{placa}</code> <code>*User | Admin*</code> -> Retira um carro a partir da placa de um estacionamento com um determinado ID.
-<code>***DELETE***</code> <code>/api/estacionamentos/{id}</code> <code>*Admin*</code> -> Deleta um estacionamento com um determinado ID.
+<code>***GET***</code> <code>/api/estacionamentos</code> <code>*User | Admin*</code> -> Resgata todos os estacionamentos.<br/>
+<code>***GET***</code> <code>/api/estacionamentos/{id}</code> <code>*User | Admin*</code> -> Resgata um estacionamento a partir de um ID.<br/>
+<code>***POST***</code> <code>/api/estacionamentos</code> <code>*Admin*</code> -> Cadastra um estacionamento.<br/>
+<code>***POST***</code> <code>/api/estacionamentos/estacionar-carro/{id}/{placa}</code> <code>*User | Admin*</code> -> Estaciona um carro a partir da placa em um estacionamento com um determinado ID.<br/>
+<code>***POST***</code> <code>/api/estacionamentos/retirar-carro/{id}/{placa}</code> <code>*User | Admin*</code> -> Retira um carro a partir da placa de um estacionamento com um determinado ID.<br/>
+<code>***DELETE***</code> <code>/api/estacionamentos/{id}</code> <code>*Admin*</code> -> Deleta um estacionamento com um determinado ID.<br/>
 
 ##### Permissões
 
-<code>***User***</code> -> Essa Role permite o usuário resgatar e cadastrar carros, além de deixar que ele estacione e retire o carro de um determinado estacionamento.
+<code>***User***</code> -> Essa Role permite o usuário resgatar e cadastrar carros, além de deixar que ele estacione e retire o carro de um determinado estacionamento.<br/>
 
-<code>***Admin***</code> ->  Essa Role permite todas as operações que o usuário pode fazer, mas além disso, permite que ele também possa criar e deletar estacionamentos.
+<code>***Admin***</code> ->  Essa Role permite todas as operações que o usuário pode fazer, mas além disso, permite que ele também possa criar e deletar estacionamentos.<br/>
 
 #### Banco de dados
 
