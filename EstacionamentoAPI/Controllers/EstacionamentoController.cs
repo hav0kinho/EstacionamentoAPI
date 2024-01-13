@@ -61,6 +61,8 @@ namespace EstacionamentoAPI.Controllers
             _db.Estacionamentos.Add(estacionamento);
             _db.SaveChanges();
 
+
+
             return Ok(estacionamento);
         }
 
@@ -99,6 +101,13 @@ namespace EstacionamentoAPI.Controllers
                 return NotFound("O carro não foi encontrado.");
             }
 
+            var carroComAMesmaPlaca = estacionamento.Veiculos.FirstOrDefault(x => x.Placa == carro.Placa);
+
+            if(carroComAMesmaPlaca != null)
+            {
+                return BadRequest("O carro já está estacionado");
+            }
+
             estacionamento.Veiculos.Add(carro);
 
 
@@ -122,6 +131,8 @@ namespace EstacionamentoAPI.Controllers
             {
                 return NotFound("O carro não foi encontrado.");
             }
+
+            
 
             estacionamento.Veiculos.Remove(carro);
             await _db.SaveChangesAsync();

@@ -69,8 +69,16 @@ namespace EstacionamentoAPI.Controllers
                 return BadRequest();
             }
 
+            var carroComMesmaPlaca = _db.Carros.FirstOrDefault(x => x.Placa == carro.Placa);
+
+            if(carroComMesmaPlaca != null)
+            {
+                return BadRequest("Carro com a mesma placa já está cadastrado.");
+            }
+
             _db.Carros.Add(carro);
             _db.SaveChanges();
+    
 
             return Created();
         }
