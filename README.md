@@ -1,5 +1,5 @@
 # EstacionamentoAPI 
-***Em Desenvolvimento***
+***Parado***
 
 <p>EstacionametoAPI é uma API desenvolvida utilizando o ASP.NET WebAPI, servindo para controle de diversos estacionamentos. Ela permitirá que o usuários autenticados no sistema possam cadastrar carros e estacionamentos, além de conseguir informar quais carros estão estacionados.</p>
 
