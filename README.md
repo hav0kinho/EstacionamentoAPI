@@ -9,7 +9,7 @@ A autenticação é feita apartir de JWT, especificamente a biblioteca JWT Beare
 
 <p>Para melhor exemplicação e visualização da estrutura da API, foi desenvolvido um pequeno diagrama que mostra o comportamento desejado (Pode sofrer alterações no futuro)</p>
 
-![Diagrama da estrutura da API](https://cdn.discordapp.com/attachments/396792372736032778/1195670564619161690/Estacionamneto.drawio_2.png?ex=65b4d5fd&is=65a260fd&hm=0ac3bd217870c3063d55a85aefb9c509cbb182934145f116977bb66b21f1d92b&)
+![Diagrama da estrutura da API](./diagrama-estacionamento.png)
 
 ## Execução
 <p>
